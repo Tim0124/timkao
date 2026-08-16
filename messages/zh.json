@@ -68,6 +68,6 @@
   },
   "footer": {
     "contactLead": "如果你的團隊也有「大家都在忍受」的痛點,我有興趣聊聊。",
-    "colophon": "以 Next.js 與 Tailwind CSS 打造,部署於 Vercel。字體使用 Inter 與 JetBrains Mono。版型靈感來自 <link>Brittany Chiang</link>。© 2026 Tim Kao"
+    "colophon": "以 Next.js 與 Tailwind CSS 打造,部署於 Vercel。版型靈感來自 <link>Brittany Chiang</link>。© 2026 Tim Kao"
   }
 }

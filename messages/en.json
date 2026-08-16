@@ -73,6 +73,6 @@
   },
   "footer": {
     "contactLead": "If your team also has a pain point everyone just puts up with, I’d love to talk.",
-    "colophon": "Built with Next.js and Tailwind CSS, deployed on Vercel. Type set in Inter and JetBrains Mono. Layout inspired by <link>Brittany Chiang</link>. © 2026 Tim Kao"
+    "colophon": "Built with Next.js and Tailwind CSS, deployed on Vercel. Layout inspired by <link>Brittany Chiang</link>. © 2026 Tim Kao"
   }
 }
