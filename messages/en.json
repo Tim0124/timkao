@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Tim Kao — Frontend Engineer",
+    "description": "I find systemic pain points and build reusable systems to solve them — increasingly with AI as leverage."
+  },
+  "nav": {
+    "sections": "Section navigation",
+    "theme": "Toggle color theme",
+    "about": "About",
+    "work": "Work",
+    "writing": "Writing"
+  },
+  "about": {
+    "intro": "Hi, I’m Tim. I’m a frontend engineer, and I like things that feel right.",
+    "p1": "I got into frontend because I love the feeling of things that just work: taps that respond, transitions that don’t stutter, loads that don’t keep you waiting. These details look small, but they often decide whether something feels good to use or makes you want to leave.",
+    "p2": "That mindset has shaped how I work. I like untangling things until they’re clear, and I habitually ask one more “why”. When the same problem keeps coming back, I can’t help tracing it upstream to see if something could be made fundamentally simpler.",
+    "p3": "These days I mostly build B2B SaaS, and I’m increasingly drawn to where engineering meets product. Lately I’ve spent a lot of time exploring how AI changes the way we build software. To me, the interesting part isn’t getting AI to write more code — it’s rethinking which tasks belong to tools, and which judgments are still worth my own time.",
+    "p4": "Outside of work, I build small products of my own, poke at strange-but-interesting things, and spend time lifting and playing badminton. Occasionally I’ll spend far more time on a tiny detail than it deserves — just because I believe it could be better."
+  },
+  "work": {
+    "items": {
+      "mcp": {
+        "title": "Letting AI operate internal APIs, directly and safely",
+        "highlight": "Cut the time Sales spends building forms for customers",
+        "body": "Every new customer meant Sales hand-building an online form from a spec, field by field — repetitive, yet never regular enough to template. I wrapped our backend APIs into an MCP Server so AI can call the right tools with the right parameters through natural language; people who can’t read an API can now drive one safely.",
+        "stats": [
+          "stdio → SSE transport: usable by non-engineering Sales, not just a local toy",
+          "An agent converts Swagger into tools automatically: the tool layer keeps up with API changes without manual upkeep",
+          "Zod validation at the boundary: bad calls from AI are stopped before they reach the system"
+        ],
+        "linkLabel": "Read more: three key design decisions"
+      },
+      "architecture": {
+        "title": "From a shared Next.js to a standalone SPA",
+        "metricLabel": "faster cold start",
+        "body": "The webapp and marketing site shared one Next.js app — the site needed SEO and SSR, the webapp needed post-login interactivity, and the two kept dragging each other down. I led the architectural decoupling, proposed it to management, and executed the migration to a pure SPA on Vite 7 + TanStack Router. With each half where it belongs, it isn’t one person who got faster — it’s the whole team’s iteration loop.",
+        "stats": [
+          "HMR ~1075ms → ~138ms (7.8× faster)",
+          "Build time 96.4s → 25.2s (3.8× faster)"
+        ],
+        "linkLabel": "The full migration story: one failure, two attempts"
+      },
+      "ui": {
+        "title": "Rebuilding the company’s internal UI library",
+        "metricLabel": "test cases · 90%+ coverage",
+        "body": "Product components were scattered across customized MUI styles — every change began with archaeology, and one-off UI work never accumulated into an asset. I migrated the components from MUI to shadcn/ui with a wrapper pattern, rebuilt 50 components, and laid down a full testing foundation — turning one-off work into a reusable system: whoever touches a component, the tests have their back.",
+        "stats": [
+          "50 components aligned with the design system",
+          "The whole suite runs in under 13 seconds"
+        ]
+      },
+      "beehabit": {
+        "title": "BeeHabit",
+        "body": "A personal project for building habits through LINE messages. One-tap logging via rich menu, progress visualized as a honeycomb — a complete side project from idea to launch."
+      },
+      "formu": {
+        "title": "Formu",
+        "body": "A coordinate-based WYSIWYG form product that reproduces paper forms 1:1. The marketing site runs on its own domain with Astro, with perfect Lighthouse scores.",
+        "linkLabel": "Development notes"
+      }
+    }
+  },
+  "writing": {
+    "viewAll": "View all posts",
+    "indexTitle": "Writing",
+    "indexDescription": "Case studies and development notes.",
+    "metaTitle": "Writing — Tim Kao",
+    "zhNote": "Note: posts are currently written in Chinese."
+  },
+  "blog": {
+    "toc": "Contents",
+    "zhNote": "This post is written in Chinese."
+  },
+  "footer": {
+    "contactLead": "If your team also has a pain point everyone just puts up with, I’d love to talk.",
+    "colophon": "Built with Next.js and Tailwind CSS, deployed on Vercel. Type set in Inter and JetBrains Mono. Layout inspired by <link>Brittany Chiang</link>. © 2026 Tim Kao"
+  }
+}

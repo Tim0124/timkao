@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "Tim Kao — Frontend Engineer",
+    "description": "我會發現系統性的痛點,造出可複用的系統解決它——而且,越來越會用 AI 當槓桿。"
+  },
+  "nav": {
+    "sections": "章節導覽",
+    "theme": "切換深淺色主題",
+    "about": "關於",
+    "work": "經歷",
+    "writing": "文章"
+  },
+  "about": {
+    "intro": "嗨，我是 Tim。我是前端工程師，喜歡那種「感覺對了」的東西。",
+    "p1": "我做前端的起點，是喜歡東西用起來順的感覺。點下去有反應、切換不卡、載入不會讓人乾等。這些看起來很小的細節，卻常常決定了一個東西用起來是舒服，還是讓人想趕快離開。",
+    "p2": "這也慢慢影響了我做事情的方式。我喜歡把事情整理清楚，也習慣多問一個「為什麼」。如果一個問題一直重複發生，我會忍不住想往回追，看看是不是有什麼地方可以從根本上變得更簡單。",
+    "p3": "現在我主要做 B2B SaaS，也越來越喜歡工程與產品交會的地方。最近則花了不少時間探索 AI 怎麼改變我們做軟體的方式。對我來說，有趣的不是讓 AI 幫我寫更多程式，而是重新思考哪些事情應該交給工具、哪些判斷仍然值得自己花時間。",
+    "p4": "工作之外，我喜歡做自己的小產品、研究一些奇怪但有趣的東西，也會花時間健身、打羽球。偶爾也會為了一個小細節花上遠比它值得的時間，只因為我覺得「這樣應該可以更好」。"
+  },
+  "work": {
+    "items": {
+      "mcp": {
+        "title": "讓 AI 直接、安全地操作內部 API",
+        "highlight": "縮短了 Sales 幫客戶建置表單的時間",
+        "body": "Sales 每接一個客戶,都要手工把規格逐欄建成線上表單——重複,卻又不夠規律到能寫死範本。我主動把後端 API 包成 MCP Server,讓 AI 用自然語言就能呼叫對的工具、帶對的參數;不會讀 API 的人,也能安全地驅動 API。",
+        "stats": [
+          "stdio → SSE 傳輸:讓非工程的 Sales 也能用,而不只是本機玩具",
+          "Agent 自動把 Swagger 轉成 tools:API 更新時工具層自己跟上,不靠人維護",
+          "Zod 邊界驗證:AI 的壞呼叫在進系統前就被擋下"
+        ],
+        "linkLabel": "深入閱讀:三個關鍵設計決策"
+      },
+      "architecture": {
+        "title": "從共用 Next.js 到獨立 SPA",
+        "metricLabel": "冷啟動速度提升",
+        "body": "webapp 與官網共用同一個 Next.js——官網要 SEO 與 SSR,webapp 要的是登入後的互動速度,兩種需求互相拖累。我主導產品架構解耦,主動向管理層提案並負責執行:將 webapp 遷移到 Vite 7 + TanStack Router 純 SPA。架構各自歸位後,快的不是一個人,是整個團隊的開發迭代。",
+        "stats": [
+          "熱重載 ~1075ms → ~138ms(快 7.8 倍)",
+          "Build 時間 96.4s → 25.2s(快 3.8 倍)"
+        ],
+        "linkLabel": "遷移全紀錄:一次失敗兩次才成功"
+      },
+      "ui": {
+        "title": "重建公司內部 UI Library",
+        "metricLabel": "個測試案例 · 覆蓋率 90%+",
+        "body": "產品元件散落在 MUI 的客製樣式裡,每次改動都要先考古——一次性的 UI 工作,累積不出資產。我以 wrapper pattern 將公司產品元件從 MUI 遷移到 Shadcn/ui,重建 50 個元件,並鋪好完整的測試基建,把一次性工作變成團隊可複用的系統:任何人改元件,測試會替他把關。",
+        "stats": ["50 個元件對齊 design system", "整套測試 13 秒內跑完"]
+      },
+      "beehabit": {
+        "title": "BeeHabit",
+        "body": "用 LINE 訊息養成習慣的個人作品。Rich menu 一鍵記錄,蜂巢視覺化進度——從構想到上線的完整個人專案。"
+      },
+      "formu": {
+        "title": "Formu",
+        "body": "能 1:1 還原紙本的座標式 WYSIWYG 表單產品。官網用 Astro 拆獨立網域,Lighthouse 四項滿分。",
+        "linkLabel": "開發記錄"
+      }
+    }
+  },
+  "writing": {
+    "viewAll": "查看全部文章",
+    "indexTitle": "技術寫作",
+    "indexDescription": "case study 與開發記錄。",
+    "metaTitle": "Writing — Tim Kao"
+  },
+  "blog": {
+    "toc": "本篇目錄"
+  },
+  "footer": {
+    "contactLead": "如果你的團隊也有「大家都在忍受」的痛點,我有興趣聊聊。",
+    "colophon": "以 Next.js 與 Tailwind CSS 打造,部署於 Vercel。字體使用 Inter 與 JetBrains Mono。版型靈感來自 <link>Brittany Chiang</link>。© 2026 Tim Kao"
+  }
+}
