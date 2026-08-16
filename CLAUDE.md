@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 - `npm run dev` — start Next.js dev server at http://localhost:3000
-- `npm run build` — production build
+- `npm run build` — production build (also the correctness check: verify every route stays ○/● static, never ƒ dynamic)
 - `npm run start` — serve the production build
 - `npm run lint` — ESLint via the flat config (`eslint.config.mjs`)
 
@@ -13,21 +13,43 @@ There is no test runner configured in this repo.
 
 ## Architecture
 
-Single-page personal site (timkao.dev) on Next.js 16 + App Router + React 19, deployed on Vercel.
+Personal site (timkao.dev) on Next.js 16 + App Router + React 19 + Tailwind CSS v4, deployed on Vercel. Fully static (SSG) — keeping it that way is a hard requirement.
 
-- **Routing**: App Router lives at `app/` at the repo root (not `src/app/`). Currently one route — `app/page.tsx` — plus `app/layout.tsx` for the root shell and `app/globals.css` for global styles. `next.config.ts` sets `trailingSlash: false`.
-- **Path alias**: `@/*` resolves to the repo root (see `tsconfig.json`). TypeScript runs in `strict` mode.
-- **Styling**: Tailwind CSS **v4** via `@tailwindcss/postcss`. There is no `tailwind.config.*`; design tokens live inline in `app/globals.css` under `@theme inline { ... }`, and dark mode is driven entirely by `prefers-color-scheme` (no toggle, no `dark` class strategy).
-- **Fonts**: Geist + Geist Mono are loaded with `next/font/google` in `app/layout.tsx` and exposed as the CSS variables `--font-geist-sans` / `--font-geist-mono`. Note: `body` in `globals.css` currently still falls back to Arial — switch to `var(--font-sans)` if/when typography work begins.
-- **Language**: `<html lang="zh-Hant">`. Site copy is Traditional Chinese; preserve full punctuation (e.g. `「」`, `——`) and do not insert spaces after Chinese commas.
+### i18n (next-intl) — shapes everything
 
-## Project context
+- Locales: `zh` (default, unprefixed at `/`) and `en` (at `/en`). `localeDetection: false` — `/` is always Chinese. Config in `i18n/routing.ts`; `proxy.ts` (Next 16 middleware) does the locale rewrite.
+- All routes live under `app/[locale]/`. **Every nested layout and page must call `setRequestLocale(locale)` before any translation call**, or that route silently falls back to dynamic rendering.
+- UI copy lives in `messages/zh.json` + `messages/en.json` — the two files must stay key-compatible (exception: `zhNote` keys exist only in `en.json`, guarded by `locale === "en"` checks). Structural data (work item keys, tech pills, hrefs, metric values) stays in components; only translatable text goes in messages.
+- Internal links use `Link` from `@/i18n/navigation` (locale-aware), **except** same-page hash anchors which use `next/link` — native `<a href="#...">` breaks back-button restoration because the history entry lacks router state.
+- `proxy.ts` matcher excludes static files by **anchored extension** (`\.(?:ico|png|…)$`), not by "path contains a dot" — blog slugs contain `Next.js` and would be skipped otherwise.
 
-`TODO.md` is the working handoff document for this site — it captures the brand positioning, the four case studies' copy, the visual style rules for the current week, and the outstanding TODO list. **Read it before making content or visual changes**, and update it (rather than inventing parallel notes) when scope shifts.
+### Content pipeline
 
-Discipline that overrides default instincts on this repo:
+- Blog posts are Markdown in `content/blog/*.md` (gray-matter frontmatter: `title`, `description`, `eyebrow`), read by `lib/posts.ts`, rendered with react-markdown in `app/[locale]/blog/[slug]/page.tsx`.
+- **Slugs are the Chinese filenames** — dynamic route `params` arrive URL-encoded, so the slug page decodes with `decodeSlug()` before `getPost()`. Post order is the curated `ORDER` array in `lib/posts.ts` (persuasion order: flagship → key → supporting).
+- Posts are Chinese-only in both locales; `/en` shows a `zhNote` notice instead of translated posts.
 
-- **Do not abstract the four `<article>` blocks in `app/page.tsx` into a `<WorkCard>` component.** The TODO explicitly calls this out — inline JSX is the chosen approach for v1.
-- **No animations, parallax, shaders, or 3D in the current phase.** Those are deferred to Week 3. If a change tempts you toward motion, skip it and note it in `TODO.md` instead.
-- **No custom brand colors and no dark-mode toggle button** — stick to Tailwind's `neutral-*` greyscale and the `prefers-color-scheme` defaults.
-- **No specific company names in copy** — describe work as "公司產品元件"、"主導產品架構解耦" etc. BeeHabit is explicitly tagged as a personal project.
+### Two page shells
+
+- **Homepage** (`app/[locale]/page.tsx`) is self-contained: split layout with a sticky left identity panel (scrollspy nav via `components/scrollspy-nav.tsx`, the only stateful client component) and a scrolling right column (About → Work → Writing → colophon). No top nav.
+- **Blog subtree** (`app/[locale]/blog/layout.tsx`) uses the traditional shell: `SiteHeader` + `Footer`.
+
+### Design system
+
+- `design-system/MASTER.md` is the design source of truth (tokens, type scale, layout decisions, deliberately-avoided anti-patterns). **Read it before content or visual changes**; update it when decisions shift.
+- Tokens live in `app/globals.css`: raw values on `:root`, mapped to Tailwind utilities in `@theme inline`. Components use the registered utilities only — `text-secondary`, `text-muted`, `border-line`, `bg-surface`, `text-h2`, `text-overline`… — never raw hex, never `dark:` variants (dark mode is entirely token-driven).
+- Dark mode is three-state: system default via `prefers-color-scheme`, manual override via `ThemeToggle` (`data-theme` + localStorage; the anti-FOUC script at the top of `<body>` is deliberately wrapped in `dangerouslySetInnerHTML` so React never treats it as a script element — a bare `<script>` or inline `next/script` triggers React warnings when the locale layout re-renders). The dark values exist **twice** in `globals.css` (`[data-theme="dark"]` and the media-query block) — keep them in sync when editing tokens.
+- Type-scale utilities (`text-display`/`text-h1`/…/`text-mono`) carry size, line-height, weight, and tracking together.
+- UI icons = `lucide-react`; brand icons = official assets in `components/icons.tsx`. No emoji as icons.
+
+### Known leftovers (pending deletion, unmounted)
+
+GSAP animation components (`components/intro-overlay.tsx`, `scroll-plane.tsx`, `sticky-trooper.tsx`, `replay-button.tsx`, `animation-layer.tsx`), `lib/gsap.ts`, the `gsap` deps, the legacy CSS tokens (`--sky`, `--bg`, `.text-hero`, `.text-lead`) and Space Grotesk font — all orphaned from an abandoned direction. Do not wire them back in; delete only when the owner confirms.
+
+## Copy discipline
+
+- Site copy is Traditional Chinese (`lang="zh-Hant"` for zh). Preserve full punctuation (`「」`, `——`, full-width `，。`) and do not insert spaces after Chinese commas.
+- **No specific company names** — describe work as "公司產品元件"、"主導產品架構解耦" etc. BeeHabit and Formu are explicitly tagged as personal projects.
+- **MCP Server outcome wording**: always「縮短了 Sales 幫客戶建置表單的時間」— never claims about specific customer counts.
+- Accent color is for interactive elements only (links, primary button, focus ring); structure is carried by the neutral scale.
+- Layout is credited to Brittany Chiang in the homepage colophon — keep the credit if the layout stays.
