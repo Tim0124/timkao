@@ -1,26 +1,265 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Design tokens v1
+   Source of truth: design/Portfolio Design Tokens.dc.html
+   原則:中性色承擔所有結構,主色只作為「可點擊」的訊號;
+   層次由字級、字重與留白建立。
+   命名:root 存值(短名),@theme 映射成 utilities
+   (text-secondary / border-line / bg-surface …)。
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 淺色語意色 */
+  --background: #ffffff; /* 頁面底色 */
+  --surface: #fafafa; /* 卡片、程式碼區塊底色 */
+  --line: #e4e4e7; /* 預設 1px 分隔線 */
+  --line-strong: #d4d4d8; /* Input、hover 狀態邊框 */
+  --foreground: #18181b; /* 標題與正文(17.7:1) */
+  --secondary: #52525b; /* 摘要、圖說、次要段落(7.7:1) */
+  --muted: #71717a; /* metadata、標籤、日期(4.8:1,僅限 background / surface 之上) */
+  --accent: #1d4ed8; /* 連結、primary button、focus ring(6.7:1) */
+  --accent-hover: #1a43b8; /* 互動元素 hover / active(8.3:1) */
+  --accent-contrast: #ffffff; /* accent 底上的文字 */
+
+  /* 中性色階(僅供語意色引用,元件不得直接使用) */
+  --neutral-50: #fafafa;
+  --neutral-100: #f4f4f5;
+  --neutral-200: #e8e8eb;
+  --neutral-300: #d4d4d8;
+  --neutral-400: #a1a1aa;
+  --neutral-500: #71717a;
+  --neutral-600: #52525b;
+  --neutral-800: #27272a;
+  --neutral-900: #18181b;
+
+  /* 陰影(僅 2 階):只表達「脫離頁面平面」;同平面分區一律用邊框 */
+  --elevation-sm: 0 1px 2px rgba(24, 24, 27, 0.06); /* 下拉選單、tooltip */
+  --elevation-md: 0 8px 24px -8px rgba(24, 24, 27, 0.18); /* 對話框、命令面板 */
+
+  /* 內容寬度:行寬以 ch 控制,維持 65–75 字元閱讀區間 */
+  --max-content: 1120px;
+  --max-prose: 720px;
+  --measure-prose: 68ch;
+
+  /* focus ring:2px accent outline + 2px offset,不改邊框寬度、無版面位移 */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* ---- 舊版 tokens(僅供未掛載的 GSAP 動畫元件,確定不用後刪除) ---- */
+  --bg: var(--background);
+  --sky: linear-gradient(180deg, #eaf1f9 0%, #f4f7fb 60%, #ffffff 100%);
+  --type-hero: clamp(2.75rem, 10vw, 7.5rem);
+  --type-lead: clamp(1.25rem, 3.2vw, 2rem);
+  --leading-hero: 1.08;
+  --tracking-hero: -0.03em;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 深色:主色改用同色相淺階(深底上維持 7:1+),hover 往更亮;
+   陰影不可見,浮層改以 line-strong 標示。
+   三態:預設跟隨系統(media query),data-theme 為手動切換的覆寫。
+   ⚠ 下面兩個深色區塊的值必須完全同步(CSS 無法跨 @media 共用選擇器)。 */
+:root {
+  color-scheme: light dark;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #101012;
+  --surface: #17181b;
+  --line: #26272b;
+  --line-strong: #3a3b40;
+  --foreground: #f4f4f5; /* 17.3:1 */
+  --secondary: #b4b4bc; /* 9.2:1 */
+  --muted: #8e8e97; /* 5.9:1 */
+  --accent: #7d9cff; /* 7.3:1 */
+  --accent-hover: #9db4ff; /* 9.4:1 */
+  --accent-contrast: #101012;
+
+  --neutral-50: #101012;
+  --neutral-100: #17181b;
+  --neutral-200: #26272b;
+  --neutral-300: #3a3b40;
+  --neutral-400: #52525b;
+  --neutral-500: #8e8e97;
+  --neutral-600: #b4b4bc;
+  --neutral-800: #e4e4e7;
+  --neutral-900: #f4f4f5;
+
+  --elevation-sm: 0 0 0 1px #3a3b40;
+  --elevation-md: 0 0 0 1px #3a3b40, 0 16px 40px -12px rgba(0, 0, 0, 0.7);
+
+  --sky: linear-gradient(180deg, #131a28 0%, #0d1017 60%, #101012 100%);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --background: #101012;
+    --surface: #17181b;
+    --line: #26272b;
+    --line-strong: #3a3b40;
+    --foreground: #f4f4f5; /* 17.3:1 */
+    --secondary: #b4b4bc; /* 9.2:1 */
+    --muted: #8e8e97; /* 5.9:1 */
+    --accent: #7d9cff; /* 7.3:1 */
+    --accent-hover: #9db4ff; /* 9.4:1 */
+    --accent-contrast: #101012;
+
+    --neutral-50: #101012;
+    --neutral-100: #17181b;
+    --neutral-200: #26272b;
+    --neutral-300: #3a3b40;
+    --neutral-400: #52525b;
+    --neutral-500: #8e8e97;
+    --neutral-600: #b4b4bc;
+    --neutral-800: #e4e4e7;
+    --neutral-900: #f4f4f5;
+
+    --elevation-sm: 0 0 0 1px #3a3b40;
+    --elevation-md: 0 0 0 1px #3a3b40, 0 16px 40px -12px rgba(0, 0, 0, 0.7);
+
+    --sky: linear-gradient(180deg, #131a28 0%, #0d1017 60%, #101012 100%);
+  }
+}
+
+@theme inline {
+  /* 語意色 → utilities:bg-background / bg-surface / border-line /
+     border-line-strong / text-foreground / text-secondary / text-muted /
+     text-accent / bg-accent / text-accent-contrast … */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-contrast: var(--accent-contrast);
+
+  /* 字體:正文 Inter、程式碼 JetBrains Mono,中文走系統字 */
+  --font-sans:
+    var(--font-inter), "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Type scale(16px 正文為錨點、約 1.25 比例):
+     產生 text-display / text-h1 / … utilities,含行高、字重、字距 */
+  --text-display: 2.75rem; /* 首頁主標,全站僅一次 */
+  --text-display--line-height: 1.1;
+  --text-display--font-weight: 650;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-h1: 2.125rem; /* Case study 標題 */
+  --text-h1--line-height: 1.15;
+  --text-h1--font-weight: 620;
+  --text-h1--letter-spacing: -0.022em;
+
+  --text-h2: 1.625rem; /* 章節標題 */
+  --text-h2--line-height: 1.25;
+  --text-h2--font-weight: 600;
+  --text-h2--letter-spacing: -0.018em;
+
+  --text-h3: 1.25rem; /* 小節標題、卡片標題 */
+  --text-h3--line-height: 1.35;
+  --text-h3--font-weight: 600;
+  --text-h3--letter-spacing: -0.011em;
+
+  --text-body-lg: 1.125rem; /* 文章導言、摘要 */
+  --text-body-lg--line-height: 1.75;
+  --text-body-lg--font-weight: 400;
+  --text-body-lg--letter-spacing: -0.003em;
+
+  --text-body: 1rem; /* 正文預設,行寬 68ch */
+  --text-body--line-height: 1.7;
+  --text-body--font-weight: 400;
+
+  --text-body-sm: 0.875rem; /* 附註、表格內文、UI 文字 */
+  --text-body-sm--line-height: 1.6;
+  --text-body-sm--font-weight: 400;
+
+  --text-caption: 0.8125rem; /* 圖說、日期、metadata */
+  --text-caption--line-height: 1.5;
+  --text-caption--font-weight: 450;
+  --text-caption--letter-spacing: 0.005em;
+
+  --text-overline: 0.75rem; /* 區塊眉標(uppercase 自行加),取代裝飾線 */
+  --text-overline--line-height: 1.4;
+  --text-overline--font-weight: 560;
+  --text-overline--letter-spacing: 0.08em;
+
+  --text-mono: 0.875rem; /* 程式碼、識別碼、數值 */
+  --text-mono--line-height: 1.65;
+
+  /* 圓角(3 階):sm=Tag/Input/按鈕、md=Card/Code block、lg=浮層 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* 陰影 utilities 接語意變數,dark 時自動改用邊框 */
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+}
+
+/* 錨點跳轉(章節導覽、文章目錄)平滑捲動;reduced-motion 時維持直接跳轉 */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--neutral-200);
+}
+
+/* 全域 focus-visible:不改邊框寬度,鍵盤操作無版面位移 */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: var(--focus-ring-width) solid var(--accent);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ============================================================
+   舊版 helper classes(僅供未掛載的 GSAP 動畫元件,確定不用後刪除)
+   ============================================================ */
+
+/* Hero 巨型宣言字:Latin 用 Space Grotesk,中文 fallback 系統字 */
+.text-hero {
+  font-family: var(--font-display), "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: var(--type-hero);
+  line-height: var(--leading-hero);
+  letter-spacing: var(--tracking-hero);
+}
+
+/* 鋪陳句:配角字級 */
+.text-lead {
+  font-size: var(--type-lead);
+  line-height: 1.4;
+}
+
+/* 數字 / meta:等寬 + tabular-nums 防跳版 */
+.text-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 手繪線稿(黑線透明底 PNG):dark mode 反轉成白線,維持可見 */
+:root[data-theme="dark"] .ink-drawing {
+  filter: invert(1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ink-drawing {
+    filter: invert(1);
+  }
 }

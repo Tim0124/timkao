@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;650;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin:0; padding:0; background:#FFFFFF; }
+  body { font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; color:#18181B; }
+  * { box-sizing: border-box; }
+  a { color:#1D4ED8; text-underline-offset:3px; text-decoration-thickness:1px; }
+  a:hover { color:#1A43B8; }
+  pre, code { font-family:"JetBrains Mono", ui-monospace, monospace; }
+  ::selection { background:#E8E8EB; }
+</style>
+</helmet>
+
+<section data-screen-label="Hero" style="min-height:88vh; display:flex; flex-direction:column; justify-content:space-between; padding:40px 40px 80px; background:#FFFFFF;">
+  <header style="width:100%; max-width:1120px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding-bottom:80px;">
+    <a href="#0" style="font-size:14px; font-weight:500; color:#18181B; text-decoration:none;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">Tim</a>
+    <nav style="display:flex; gap:24px; align-items:center;">
+      <a href="#case" style="font-size:14px; font-weight:500; color:#52525B; text-decoration:none;" style-hover="color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">Work</a>
+      <a href="#0" style="font-size:14px; font-weight:500; color:#52525B; text-decoration:none;" style-hover="color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">Writing</a>
+      <a href="#0" style="font-size:14px; font-weight:500; color:#52525B; text-decoration:none;" style-hover="color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">About</a>
+    </nav>
+  </header>
+
+  <div style="width:100%; max-width:1120px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:80px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:24px; max-width:68ch;">
+      <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Frontend engineer · Taipei</div>
+      <h1 style="margin:0; font-size:44px; line-height:1.1; font-weight:650; letter-spacing:-0.03em;">Tim</h1>
+      <p style="margin:0; font-size:18px; line-height:1.75; font-weight:400; letter-spacing:-0.003em; color:#52525B; text-wrap:pretty;">前端工程師，做的是需要撐住規模與長期維護的介面：設計系統、資料密集的操作畫面、以及讓工程團隊跑得更快的前端基礎設施。這裡放我認為值得完整交代過程的幾個案子，以及技術寫作。</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; padding-top:8px;">
+        <a href="#case" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #1D4ED8; background:#1D4ED8; color:#FFFFFF; text-decoration:none;" style-hover="background:#1A43B8; border-color:#1A43B8;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">閱讀 case study</a>
+        <a href="#0" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #D4D4D8; background:#FFFFFF; color:#18181B; text-decoration:none;" style-hover="background:#FAFAFA; border-color:#A1A1AA;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">下載履歷</a>
+      </div>
+    </div>
+
+    <aside style="border-left:1px solid #E4E4E7; padding-left:24px; display:flex; flex-direction:column; gap:24px;">
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">現況</div>
+        <div style="font-size:14px; line-height:1.6; color:#18181B;">在職，對產品導向的前端／設計系統職位開放討論。</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">聯絡</div>
+        <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-start;">
+          <a href="mailto:tim@example.com" style="font-size:14px; font-weight:500; color:#18181B; text-decoration:none; padding:4px 0; border-bottom:1px solid #D4D4D8;" style-hover="color:#1D4ED8; border-bottom-color:#1D4ED8;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">tim@example.com</a>
+          <a href="#0" style="font-size:14px; font-weight:500; color:#18181B; text-decoration:none; padding:4px 0; border-bottom:1px solid #D4D4D8;" style-hover="color:#1D4ED8; border-bottom-color:#1D4ED8;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">GitHub ↗</a>
+          <a href="#0" style="font-size:14px; font-weight:500; color:#18181B; text-decoration:none; padding:4px 0; border-bottom:1px solid #D4D4D8;" style-hover="color:#1D4ED8; border-bottom-color:#1D4ED8;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">現在用的</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:13px; line-height:1.65; color:#52525B;">TypeScript · React<br />Vite · Playwright<br />Design tokens</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div id="case" style="border-top:1px solid #E4E4E7;"></div>
+
+<section data-screen-label="Case study" style="padding:80px 40px 120px; background:#FFFFFF;">
+  <div style="width:100%; max-width:1120px; margin:0 auto; display:flex; flex-direction:column; gap:64px;">
+
+    <header style="display:flex; flex-direction:column; gap:24px; max-width:68ch;">
+      <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Case study</div>
+      <h1 style="margin:0; font-size:34px; line-height:1.15; font-weight:620; letter-spacing:-0.022em; text-wrap:pretty;">把 14 個前端專案收斂到一套設計系統</h1>
+      <p style="margin:0; font-size:18px; line-height:1.75; font-weight:400; letter-spacing:-0.003em; color:#52525B; text-wrap:pretty;">同一個按鈕在公司內部有 11 種寫法。這篇記錄我們如何在不凍結產品開發的前提下收斂它，以及哪些決定後來證明是錯的。</p>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:center; font-size:13px; line-height:1.5; font-weight:450; letter-spacing:0.005em; color:#71717A;">
+        <span>2025 – 2026</span><span>我的角色：技術主導</span><span>閱讀時間 12 分鐘</span>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <span style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">Design system</span>
+        <span style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">TypeScript</span>
+        <span style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">Monorepo</span>
+      </div>
+    </header>
+
+    <div style="display:flex; flex-wrap:wrap; gap:64px; align-items:flex-start;">
+
+      <article style="flex:1 1 480px; max-width:68ch; display:flex; flex-direction:column; gap:40px;">
+
+        <div id="s1" style="display:flex; flex-direction:column; gap:20px;">
+          <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">情境與限制</h2>
+          <p style="margin:0; font-size:16px; line-height:1.7;">產品線在兩年內從 3 個成長到 14 個前端專案，每個團隊各自複製最近一次覺得好用的元件。稽核當下光是 button 就有 11 種實作、5 種 focus 行為，其中 3 種完全沒有鍵盤焦點樣式。設計師每次改動都要重畫一次規格，工程師每次都重寫一次。</p>
+          <p style="margin:0; font-size:16px; line-height:1.7;">限制條件很硬：不能要求任何團隊停下功能開發、不能一次性大改版、也沒有專職平台團隊 — 我和一位設計師是兼職投入，每週約 12 小時。</p>
+          <div style="border-left:2px solid #D4D4D8; padding:4px 0 4px 20px; display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:18px; line-height:1.75; letter-spacing:-0.003em;">「如果遷移需要開會協調，它就不會發生。」</div>
+            <div style="font-size:13px; line-height:1.5; color:#71717A;">這句話決定了後面所有取捨</div>
+          </div>
+        </div>
+
+        <div id="s2" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E4E4E7; padding-top:40px;">
+          <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">關鍵決策取捨</h2>
+
+          <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">先做 token，不先做元件</h3>
+          <p style="margin:0; font-size:16px; line-height:1.7;">最直覺的做法是先發布一套元件庫，但那要求每個團隊改 import 才有價值。我們反過來先只發 token：14 個專案在兩週內全部接上，因為那只是替換色碼與字級常數，不動任何結構。第一個月就有 78% 的硬編碼色碼消失，而沒有任何一個團隊改過元件。</p>
+          <div style="border:1px solid #E4E4E7; border-radius:8px; overflow:hidden;">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 16px; background:#FAFAFA; border-bottom:1px solid #E4E4E7;">
+              <span style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#71717A;">migrate/codemod.ts</span>
+              <button type="button" style="font-family:Inter, sans-serif; font-size:13px; font-weight:500; color:#52525B; background:transparent; border:1px solid transparent; border-radius:4px; padding:4px 8px; cursor:pointer;" style-hover="background:#E8E8EB; color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">Copy</button>
+            </div>
+            <pre style="margin:0; padding:20px; background:#FAFAFA; font-size:14px; line-height:1.65; overflow-x:auto;">// 只換值，不換 API：遷移不需要跨團隊協調
+const map = new Map([
+  ["#1d4ed8", "var(--color-accent)"],
+  ["#52525b", "var(--color-text-secondary)"],
+]);</pre>
+          </div>
+
+          <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">用 lint 規則取代文件</h3>
+          <p style="margin:0; font-size:16px; line-height:1.7;">我們寫過一份 20 頁的規範，三個月後只有作者讀過。改成一條 ESLint 規則：偵測硬編碼色碼並在錯誤訊息裡直接給對應 token 名稱。違規數在六週內從 1,240 降到 60，剩下的 60 是刻意保留的行銷頁例外。</p>
+
+          <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">放棄的選項</h3>
+          <p style="margin:0; font-size:16px; line-height:1.7;">我們評估過把所有專案併入 monorepo 統一版本，估算下來需要三個月且會凍結兩條產品線的發布 — 以團隊當時的投入量不可能完成，因此改為各專案獨立升級、token 走 semver。代價是版本會分歧：目前仍有 2 個專案落後一個主版本。</p>
+        </div>
+
+        <div id="s3" style="display:flex; flex-direction:column; gap:20px; border-top:1px solid #E4E4E7; padding-top:40px;">
+          <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">事後回顧</h2>
+          <p style="margin:0; font-size:16px; line-height:1.7;">一年後回看，新畫面從設計稿到可上線的時間從平均 6 天縮短到 2 天，而鍵盤可操作性從 3 個專案有 focus 樣式變成全部都有 — 後者才是我認為真正的成果，因為它不是靠推廣，而是靠元件預設值。</p>
+          <p style="margin:0; font-size:16px; line-height:1.7;">做錯的地方：一開始我把 token 命名成 <code style="font-size:13px; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:1px 5px;">--gray-600</code> 這類色階名，導致深色模式上線時每個元件都要改一次引用。第二版改為語意命名後，深色模式只需覆寫變數值。如果重來一次，我會第一天就用語意層命名，並在 token 發布前先驗證深色模式。</p>
+          <p style="margin:0; font-size:16px; line-height:1.7;">還沒解決的是設計稿與程式碼的同步：目前仍靠人工比對，這是下一階段要自動化的部分。</p>
+          <div style="display:flex; flex-direction:column; gap:12px; border-top:1px solid #E4E4E7; padding-top:24px;">
+            <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">延伸閱讀</div>
+            <a href="#0" style="font-size:14px; font-weight:500; color:#18181B; text-decoration:none; padding:4px 0; border-bottom:1px solid #D4D4D8; align-self:flex-start;" style-hover="color:#1D4ED8; border-bottom-color:#1D4ED8;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">為什麼 token 命名要語意化 →</a>
+          </div>
+        </div>
+      </article>
+
+      <aside style="flex:0 1 220px; min-width:200px; position:sticky; top:64px; display:flex; flex-direction:column; gap:12px; border-left:1px solid #E4E4E7; padding-left:24px;">
+        <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">本篇目錄</div>
+        <nav style="display:flex; flex-direction:column; gap:4px; align-items:flex-start;">
+          <a href="#s1" style="font-size:14px; line-height:1.6; color:#52525B; text-decoration:none; padding:2px 0;" style-hover="color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:3px;">情境與限制</a>
+          <a href="#s2" style="font-size:14px; line-height:1.6; color:#52525B; text-decoration:none; padding:2px 0;" style-hover="color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:3px;">關鍵決策取捨</a>
+          <a href="#s3" style="font-size:14px; line-height:1.6; color:#52525B; text-decoration:none; padding:2px 0;" style-hover="color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:3px;">事後回顧</a>
+        </nav>
+      </aside>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

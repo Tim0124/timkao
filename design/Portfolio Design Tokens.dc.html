@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;650;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #FFFFFF; }
+  body { font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  * { box-sizing: border-box; }
+  a { color: #1D4ED8; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: #1A43B8; }
+  pre, code { font-family: "JetBrains Mono", ui-monospace, monospace; }
+</style>
+</helmet>
+
+<div style="background:#FFFFFF; color:#18181B; padding: 80px 40px 120px; display:flex; justify-content:center;">
+<div style="width:100%; max-width:1120px; display:flex; flex-direction:column; gap:96px;">
+
+  <header style="display:flex; flex-direction:column; gap:24px; max-width:68ch;">
+    <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Design tokens · v1 · 個人作品集</div>
+    <h1 style="margin:0; font-size:44px; line-height:1.1; font-weight:650; letter-spacing:-0.03em;">節制的、以排版建立層次的 token 系統</h1>
+    <p style="margin:0; font-size:18px; line-height:1.75; font-weight:400; letter-spacing:-0.003em; color:#52525B; text-wrap:pretty;">為長文技術 case study 設計：中性色承擔所有結構，單一主色只出現在可互動元素上，層次由字級、字重與留白建立。此頁只含 token 與元件基礎樣式，不含頁面版面。</p>
+    <p style="margin:0; font-size:14px; line-height:1.6; color:#71717A;">正文 Inter · 程式碼 JetBrains Mono · 4px 間距基準 · WCAG AA 以上</p>
+  </header>
+
+  <section style="display:flex; flex-direction:column; gap:32px; border-top:1px solid #E4E4E7; padding-top:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:68ch;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">01 — 色彩</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">理由：受眾是技術主管與資深工程師，閱讀時間長，因此中性色階負責所有層次，主色只作為「可點擊」的訊號，讓每一次出現都有意義。</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">中性色階（9 階）</h3>
+      <div style="display:grid; grid-template-columns:repeat(9, 1fr); gap:8px;">
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#FAFAFA; border:1px solid #E4E4E7;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">50</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#FAFAFA</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#F4F4F5; border:1px solid #E4E4E7;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">100</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#F4F4F5</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#E8E8EB;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">200</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#E8E8EB</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#D4D4D8;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">300</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#D4D4D8</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#A1A1AA;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">400</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#A1A1AA</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#71717A;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">500</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#71717A</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#52525B;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">600</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#52525B</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#27272A;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">800</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#27272A</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:72px; border-radius:4px; background:#18181B;"></div><div style="font-size:13px; line-height:1.5; font-weight:450;">900</div><div style="font-size:12px; color:#71717A; font-family:'JetBrains Mono', monospace;">#18181B</div></div>
+      </div>
+      <p style="margin:0; font-size:14px; line-height:1.6; color:#71717A; max-width:68ch;">註：--color-text-muted 僅保證在 --color-background（4.8:1）與 --color-surface（4.6:1）之上達 AA，不可置於更深的底色。
+      理由：略帶冷調的灰（zinc 系）在長篇閱讀下比純灰不易顯得平板，且深色模式反轉時不會泛黃。</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(420px, 1fr)); gap:32px;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">淺色語意色票</h3>
+        <div style="border:1px solid #E4E4E7; border-radius:8px; overflow:hidden;">
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:12px 16px; background:#FAFAFA; font-size:12px; font-weight:560; letter-spacing:0.06em; text-transform:uppercase; color:#71717A;"><div></div><div>Token · 用途</div><div>Hex</div><div>對比</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#FFFFFF; border:1px solid #D4D4D8;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-background</div><div style="color:#71717A; font-size:13px;">頁面底色</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#FFFFFF</div><div style="color:#71717A;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#FAFAFA; border:1px solid #E4E4E7;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-surface</div><div style="color:#71717A; font-size:13px;">卡片、程式碼區塊底色</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#FAFAFA</div><div style="color:#71717A;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#E4E4E7;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-border</div><div style="color:#71717A; font-size:13px;">預設 1px 分隔線</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#E4E4E7</div><div style="color:#71717A;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#D4D4D8;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-border-strong</div><div style="color:#71717A; font-size:13px;">Input、hover 狀態邊框</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#D4D4D8</div><div style="color:#71717A;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#18181B;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-text-primary</div><div style="color:#71717A; font-size:13px;">標題與正文</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#18181B</div><div style="font-weight:500;">17.7:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#52525B;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-text-secondary</div><div style="color:#71717A; font-size:13px;">摘要、圖說、次要段落</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#52525B</div><div style="font-weight:500;">7.7:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#71717A;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-text-muted</div><div style="color:#71717A; font-size:13px;">metadata、標籤、日期（僅限 background / surface 之上）</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#71717A</div><div style="font-weight:500;">4.8:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#1D4ED8;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-accent</div><div style="color:#71717A; font-size:13px;">連結、primary button、focus ring</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#1D4ED8</div><div style="font-weight:500;">6.7:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #E4E4E7; font-size:14px;"><div style="height:28px; border-radius:4px; background:#1A43B8;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-accent-hover</div><div style="color:#71717A; font-size:13px;">互動元素 hover / active</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#52525B;">#1A43B8</div><div style="font-weight:500;">8.3:1</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">深色語意色票</h3>
+        <div style="border:1px solid #26272B; border-radius:8px; overflow:hidden; background:#101012;">
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:12px 16px; background:#17181B; font-size:12px; font-weight:560; letter-spacing:0.06em; text-transform:uppercase; color:#8E8E97;"><div></div><div>Token · 用途</div><div>Hex</div><div>對比</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#101012; border:1px solid #3A3B40;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-background</div><div style="color:#8E8E97; font-size:13px;">頁面底色</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#101012</div><div style="color:#8E8E97;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#17181B; border:1px solid #26272B;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-surface</div><div style="color:#8E8E97; font-size:13px;">卡片、程式碼區塊底色</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#17181B</div><div style="color:#8E8E97;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#26272B;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-border</div><div style="color:#8E8E97; font-size:13px;">預設 1px 分隔線</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#26272B</div><div style="color:#8E8E97;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#3A3B40;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-border-strong</div><div style="color:#8E8E97; font-size:13px;">Input、hover 狀態邊框</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#3A3B40</div><div style="color:#8E8E97;">—</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#F4F4F5;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-text-primary</div><div style="color:#8E8E97; font-size:13px;">標題與正文</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#F4F4F5</div><div style="font-weight:500;">17.3:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#B4B4BC;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-text-secondary</div><div style="color:#8E8E97; font-size:13px;">摘要、圖說、次要段落</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#B4B4BC</div><div style="font-weight:500;">9.2:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#8E8E97;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-text-muted</div><div style="color:#8E8E97; font-size:13px;">metadata、標籤、日期</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#8E8E97</div><div style="font-weight:500;">5.9:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#7D9CFF;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-accent</div><div style="color:#8E8E97; font-size:13px;">連結、primary button、focus ring</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#7D9CFF</div><div style="font-weight:500;">7.3:1</div></div>
+          <div style="display:grid; grid-template-columns:44px 1fr 96px 64px; gap:16px; align-items:center; padding:14px 16px; border-top:1px solid #26272B; font-size:14px; color:#F4F4F5;"><div style="height:28px; border-radius:4px; background:#9DB4FF;"></div><div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--color-accent-hover</div><div style="color:#8E8E97; font-size:13px;">互動元素 hover / active</div></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#B4B4BC;">#9DB4FF</div><div style="font-weight:500;">9.4:1</div></div>
+        </div>
+        <p style="margin:0; font-size:14px; line-height:1.6; color:#71717A;">理由：深色模式的主色改用同色相的淺階，才能在深底上維持 7:1 以上對比；hover 往更亮而非更暗，符合深底的視覺回饋方向。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:32px; border-top:1px solid #E4E4E7; padding-top:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:68ch;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">02 — Type scale</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">理由：以 16px 正文為錨點、約 1.25 比例向上展開，階與階之間差距夠明顯可以取代顏色與線框；正文行高 1.7 是中英混排長文最舒適的區間。</p>
+    </div>
+    <div style="display:flex; flex-direction:column;">
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-display</div><div style="font-size:13px; color:#71717A;">44 / 1.1 / 650 / -0.03em</div><div style="font-size:13px; color:#71717A;">首頁主標，全站僅一次</div></div>
+        <div style="font-size:44px; line-height:1.1; font-weight:650; letter-spacing:-0.03em;">把複雜系統寫清楚</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-h1</div><div style="font-size:13px; color:#71717A;">34 / 1.15 / 620 / -0.022em</div><div style="font-size:13px; color:#71717A;">Case study 標題</div></div>
+        <div style="font-size:34px; line-height:1.15; font-weight:620; letter-spacing:-0.022em;">重寫排程器：從 40 分鐘到 90 秒</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-h2</div><div style="font-size:13px; color:#71717A;">26 / 1.25 / 600 / -0.018em</div><div style="font-size:13px; color:#71717A;">章節標題</div></div>
+        <div style="font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">問題與限制條件</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-h3</div><div style="font-size:13px; color:#71717A;">20 / 1.35 / 600 / -0.011em</div><div style="font-size:13px; color:#71717A;">小節標題、卡片標題</div></div>
+        <div style="font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">為什麼不先加機器</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-body-lg</div><div style="font-size:13px; color:#71717A;">18 / 1.75 / 400 / -0.003em</div><div style="font-size:13px; color:#71717A;">文章導言、摘要</div></div>
+        <div style="font-size:18px; line-height:1.75; font-weight:400; letter-spacing:-0.003em; max-width:68ch;">批次任務的尾延遲從 P99 40 分鐘掉到 90 秒，靠的不是更多機器，而是把兩個互相等待的隊列拆開。</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-body</div><div style="font-size:13px; color:#71717A;">16 / 1.7 / 400 / 0</div><div style="font-size:13px; color:#71717A;">正文預設，行寬 68ch</div></div>
+        <div style="font-size:16px; line-height:1.7; font-weight:400; max-width:68ch;">原本的設計讓寫入與壓縮共用同一個 worker pool，任何一次壓縮尖峰都會把寫入排到後面。我們把兩者拆成獨立 pool，並為壓縮加上可搶佔的優先權，尾延遲因此收斂。</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-body-sm</div><div style="font-size:13px; color:#71717A;">14 / 1.6 / 400 / 0</div><div style="font-size:13px; color:#71717A;">附註、表格內文、UI 文字</div></div>
+        <div style="font-size:14px; line-height:1.6; font-weight:400; max-width:68ch; color:#52525B;">量測環境：8 vCPU，資料集 240 GB，重複三次取中位數。</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-caption</div><div style="font-size:13px; color:#71717A;">13 / 1.5 / 450 / 0.005em</div><div style="font-size:13px; color:#71717A;">圖說、日期、metadata</div></div>
+        <div style="font-size:13px; line-height:1.5; font-weight:450; letter-spacing:0.005em; color:#71717A;">2026 · 分散式系統 · 閱讀時間 12 分鐘</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-overline</div><div style="font-size:13px; color:#71717A;">12 / 1.4 / 560 / 0.08em · uppercase</div><div style="font-size:13px; color:#71717A;">區塊眉標，取代裝飾線</div></div>
+        <div style="font-size:12px; line-height:1.4; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Selected work</div>
+      </div>
+      <div style="display:grid; grid-template-columns:200px 1fr; gap:32px; padding:24px 0; border-top:1px solid #E4E4E7; border-bottom:1px solid #E4E4E7; align-items:baseline;">
+        <div style="display:flex; flex-direction:column; gap:4px;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--text-mono</div><div style="font-size:13px; color:#71717A;">14 / 1.65 / 400 / 0</div><div style="font-size:13px; color:#71717A;">程式碼、識別碼、數值</div></div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:14px; line-height:1.65;">p99_latency_seconds{queue="compaction"}</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:32px; border-top:1px solid #E4E4E7; padding-top:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:68ch;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">03 — 間距（4px 基準）</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">理由：4px 基準能對齊 Inter 的行高格線；階數刻意稀疏，讓「元件內距 / 元素間距 / 區塊間距」三種尺度不會混用。</p>
+    </div>
+    <div style="display:flex; flex-direction:column;">
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-1</div><div style="font-size:13px; color:#71717A;">4px</div><div><div style="height:12px; width:4px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">圖示與文字間、Tag 內距</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-2</div><div style="font-size:13px; color:#71717A;">8px</div><div><div style="height:12px; width:8px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">按鈕內側垂直內距、緊鄰標籤</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-3</div><div style="font-size:13px; color:#71717A;">12px</div><div><div style="height:12px; width:12px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">Input 內距、列表項間距</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-4</div><div style="font-size:13px; color:#71717A;">16px</div><div><div style="height:12px; width:16px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">卡片內距、段落間距下限</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-5</div><div style="font-size:13px; color:#71717A;">20px</div><div><div style="height:12px; width:20px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">正文段落之間</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-6</div><div style="font-size:13px; color:#71717A;">24px</div><div><div style="height:12px; width:24px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">卡片較寬內距、標題與正文之間</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-8</div><div style="font-size:13px; color:#71717A;">32px</div><div><div style="height:12px; width:32px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">小節之間、卡片網格 gap</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-10</div><div style="font-size:13px; color:#71717A;">40px</div><div><div style="height:12px; width:40px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">h2 之前的上方留白</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-12</div><div style="font-size:13px; color:#71717A;">48px</div><div><div style="height:12px; width:48px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">手機版區塊間距</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-16</div><div style="font-size:13px; color:#71717A;">64px</div><div><div style="height:12px; width:64px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">桌機版區塊間距</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-20</div><div style="font-size:13px; color:#71717A;">80px</div><div><div style="height:12px; width:80px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">頁首／頁尾與內容之間</div></div>
+      <div style="display:grid; grid-template-columns:120px 64px 1fr 280px; gap:24px; align-items:center; padding:10px 0; border-top:1px solid #E4E4E7; border-bottom:1px solid #E4E4E7;"><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--space-30</div><div style="font-size:13px; color:#71717A;">120px</div><div><div style="height:12px; width:120px; background:#18181B; border-radius:2px;"></div></div><div style="font-size:13px; color:#71717A;">大段落切換、頁面底部收尾</div></div>
+    </div>
+  </section>
+
+  <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:40px; border-top:1px solid #E4E4E7; padding-top:40px;">
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">04 — 圓角與邊框</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">理由：小圓角讀起來像工具而非消費品；三階足以區分「輸入元件 / 容器 / 浮層」。</p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="width:96px; height:64px; border:1px solid #D4D4D8; border-radius:4px; background:#FAFAFA;"></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--radius-sm 4px</div><div style="font-size:13px; color:#71717A;">Tag、Input、按鈕</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="width:96px; height:64px; border:1px solid #D4D4D8; border-radius:8px; background:#FAFAFA;"></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--radius-md 8px</div><div style="font-size:13px; color:#71717A;">Card、Code block</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="width:96px; height:64px; border:1px solid #D4D4D8; border-radius:12px; background:#FAFAFA;"></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--radius-lg 12px</div><div style="font-size:13px; color:#71717A;">浮層、命令面板</div></div>
+      </div>
+      <div style="font-size:14px; line-height:1.6; color:#52525B; max-width:60ch;">邊框規則：預設 1px solid <span style="font-family:'JetBrains Mono', monospace;">--color-border</span>；需要被指認的互動容器（Input、hover 中的 Card）用 <span style="font-family:'JetBrains Mono', monospace;">--color-border-strong</span>；焦點狀態不加粗邊框，改用 outline，避免版面位移。</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">05 — 陰影（僅 2 階）</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">理由：陰影只用來表達「脫離頁面平面」；同一平面上的分區一律用邊框，避免陰影堆疊造成視覺噪音。</p>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="width:140px; height:80px; border-radius:8px; background:#FFFFFF; border:1px solid #E4E4E7; box-shadow:0 1px 2px rgba(24,24,27,0.06);"></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--shadow-sm</div><div style="font-size:13px; color:#71717A;">下拉選單、tooltip</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px;"><div style="width:140px; height:80px; border-radius:12px; background:#FFFFFF; border:1px solid #E4E4E7; box-shadow:0 8px 24px -8px rgba(24,24,27,0.18);"></div><div style="font-family:'JetBrains Mono', monospace; font-size:13px;">--shadow-md</div><div style="font-size:13px; color:#71717A;">對話框、命令面板</div></div>
+      </div>
+      <div style="font-size:14px; line-height:1.6; color:#52525B; max-width:60ch;">何時改用邊框：Card、程式碼區塊、表格、區塊分隔、任何不會浮起的元素 — 一律 0 陰影。深色模式的陰影不可見，改以 <span style="font-family:'JetBrains Mono', monospace;">--color-border-strong</span> 標示浮層。</div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px; border-top:1px solid #E4E4E7; padding-top:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:68ch;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">06 — 斷點與內容寬度</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">理由：行寬以 ch 而非 px 控制，字級改變時行寬自動維持在 65–75 字元的閱讀區間。</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;">
+      <div style="border:1px solid #E4E4E7; border-radius:8px; padding:20px; display:flex; flex-direction:column; gap:8px;"><div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Mobile</div><div style="font-family:'JetBrains Mono', monospace; font-size:14px;">&lt; 640px</div><div style="font-size:14px; line-height:1.6; color:#52525B;">左右邊距 20px，單欄，區塊間距 48px，行寬自然落在 40–50 字元。</div></div>
+      <div style="border:1px solid #E4E4E7; border-radius:8px; padding:20px; display:flex; flex-direction:column; gap:8px;"><div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Tablet</div><div style="font-family:'JetBrains Mono', monospace; font-size:14px;">640 – 1023px</div><div style="font-size:14px; line-height:1.6; color:#52525B;">左右邊距 32px，內容最大寬 720px，正文行寬 68ch。</div></div>
+      <div style="border:1px solid #E4E4E7; border-radius:8px; padding:20px; display:flex; flex-direction:column; gap:8px;"><div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Desktop</div><div style="font-family:'JetBrains Mono', monospace; font-size:14px;">≥ 1024px</div><div style="font-size:14px; line-height:1.6; color:#52525B;">內容最大寬 1120px，長文欄 68ch，側註可外掛於 1120 之內。</div></div>
+      <div style="border:1px solid #E4E4E7; border-radius:8px; padding:20px; display:flex; flex-direction:column; gap:8px; background:#FAFAFA;"><div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Measure</div><div style="font-family:'JetBrains Mono', monospace; font-size:14px;">--measure-prose: 68ch</div><div style="font-size:14px; line-height:1.6; color:#52525B;">上限 75ch、下限 65ch；程式碼區塊可放寬到 1120px 全寬。</div></div>
+    </div>
+    <div style="border:1px solid #E4E4E7; border-radius:8px; padding:24px; max-width:68ch; font-size:16px; line-height:1.7;">這一段的寬度就是 68ch 的實際樣子。把眼睛掃過一行的距離控制在這個範圍，讀者不需要重新尋找行首，長篇 case study 才撐得住十分鐘以上的閱讀。</div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:40px; border-top:1px solid #E4E4E7; padding-top:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:68ch;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">07 — 元件基礎樣式</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">所有 focus-visible 一律為 2px accent outline + 2px offset，不改變邊框寬度，因此鍵盤操作時不會有版面位移。下列元件可直接互動，最後一列為靜態的 focus-visible 示意。</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">Button</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:24px; border:1px solid #E4E4E7; border-radius:8px; padding:24px;">
+        <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
+          <div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Primary</div>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #1D4ED8; background:#1D4ED8; color:#FFFFFF; cursor:pointer; transition:background 120ms ease, border-color 120ms ease;" style-hover="background:#1A43B8; border-color:#1A43B8;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">下載履歷</button>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #1D4ED8; background:#1D4ED8; color:#FFFFFF; outline:2px solid #1D4ED8; outline-offset:2px;">focus-visible</button>
+          <button type="button" disabled="disabled" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #E8E8EB; background:#E8E8EB; color:#A1A1AA; cursor:not-allowed;">disabled</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
+          <div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Secondary</div>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #D4D4D8; background:#FFFFFF; color:#18181B; cursor:pointer; transition:background 120ms ease, border-color 120ms ease;" style-hover="background:#FAFAFA; border-color:#A1A1AA;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">查看原始碼</button>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #D4D4D8; background:#FFFFFF; color:#18181B; outline:2px solid #1D4ED8; outline-offset:2px;">focus-visible</button>
+          <button type="button" disabled="disabled" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #E8E8EB; background:#FFFFFF; color:#A1A1AA; cursor:not-allowed;">disabled</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
+          <div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Ghost</div>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid transparent; background:transparent; color:#52525B; cursor:pointer; transition:background 120ms ease, color 120ms ease;" style-hover="background:#F4F4F5; color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">全部文章</button>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid transparent; background:transparent; color:#52525B; outline:2px solid #1D4ED8; outline-offset:2px;">focus-visible</button>
+          <button type="button" disabled="disabled" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid transparent; background:transparent; color:#A1A1AA; cursor:not-allowed;">disabled</button>
+        </div>
+      </div>
+      <p style="margin:0; font-size:14px; line-height:1.6; color:#71717A; max-width:68ch;">高度 40px（12px 內距 + 16px 行盒），觸控區達 44px 時另加 2px 垂直外距；三階層級對應「唯一主要行動 / 並列次要行動 / 導覽類行動」。</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:32px;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">Link</h3>
+        <div style="border:1px solid #E4E4E7; border-radius:8px; padding:24px; display:flex; flex-direction:column; gap:20px;">
+          <div style="font-size:16px; line-height:1.7; max-width:60ch;">Inline：這個做法後來寫成一篇 <a href="#0" style="color:#1D4ED8; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px;" style-hover="color:#1A43B8; text-decoration-thickness:2px;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px; border-radius:2px;">關於背壓的筆記</a>，正文中的連結永遠帶底線，不依賴顏色辨識。</div>
+          <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start;">
+            <div style="font-size:12px; font-weight:560; letter-spacing:0.08em; text-transform:uppercase; color:#71717A;">Standalone</div>
+            <a href="#0" style="font-size:14px; font-weight:500; color:#18181B; text-decoration:none; display:inline-flex; align-items:center; gap:8px; padding:4px 0; border-bottom:1px solid #D4D4D8;" style-hover="color:#1D4ED8; border-bottom-color:#1D4ED8;" style-focus="outline:2px solid #1D4ED8; outline-offset:4px;">閱讀完整 case study →</a>
+            <a href="#0" style="font-size:14px; font-weight:500; color:#18181B; text-decoration:none; display:inline-flex; align-items:center; gap:8px; padding:4px 0; border-bottom:1px solid #D4D4D8; outline:2px solid #1D4ED8; outline-offset:4px;">focus-visible 示意 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">Tag</h3>
+        <div style="border:1px solid #E4E4E7; border-radius:8px; padding:24px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">Go</span>
+            <span style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">Postgres</span>
+            <span style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">分散式系統</span>
+            <a href="#0" style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#FFFFFF; border:1px solid #D4D4D8; border-radius:4px; padding:4px 8px; text-decoration:none;" style-hover="color:#18181B; border-color:#A1A1AA;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">可點擊 Tag</a>
+            <span style="font-size:13px; line-height:1.5; font-weight:450; color:#52525B; background:#FFFFFF; border:1px solid #D4D4D8; border-radius:4px; padding:4px 8px; outline:2px solid #1D4ED8; outline-offset:2px;">focus-visible</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.6; color:#71717A;">Tag 不使用主色與彩色底：分類是資訊不是行動，只有可點擊的 Tag 才有邊框強化與 hover。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:32px;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">Card</h3>
+        <a href="#0" style="display:flex; flex-direction:column; gap:12px; border:1px solid #E4E4E7; border-radius:8px; padding:24px; background:#FFFFFF; text-decoration:none; color:#18181B; box-shadow:none; transition:border-color 120ms ease, background 120ms ease;" style-hover="border-color:#D4D4D8; background:#FAFAFA;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">
+          <div style="font-size:13px; line-height:1.5; font-weight:450; letter-spacing:0.005em; color:#71717A;">2026 · 分散式系統</div>
+          <div style="font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">重寫排程器：從 40 分鐘到 90 秒</div>
+          <div style="font-size:16px; line-height:1.7; color:#52525B;">拆開互相等待的兩個隊列，尾延遲收斂 96%。內含量測方法與失敗嘗試。</div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:4px;">
+            <span style="font-size:13px; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">Go</span>
+            <span style="font-size:13px; font-weight:450; color:#52525B; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:4px 8px;">Kafka</span>
+          </div>
+        </a>
+        <p style="margin:0; font-size:14px; line-height:1.6; color:#71717A;">Card 一律 0 陰影，hover 只變邊框與底色 — 卡片沒有離開頁面平面。</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">Input</h3>
+        <div style="border:1px solid #E4E4E7; border-radius:8px; padding:24px; display:flex; flex-direction:column; gap:16px;">
+          <label style="display:flex; flex-direction:column; gap:8px; font-size:14px; font-weight:500; color:#18181B;">Email
+            <input type="email" placeholder="you@company.com" style="font-family:Inter, sans-serif; font-size:14px; line-height:1.6; color:#18181B; background:#FFFFFF; border:1px solid #D4D4D8; border-radius:4px; padding:12px; width:100%;" style-hover="border-color:#A1A1AA;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px; border-color:#A1A1AA;" />
+          </label>
+          <div style="display:flex; flex-direction:column; gap:8px; font-size:14px; font-weight:500;">focus-visible 示意
+            <div style="font-size:14px; line-height:1.6; color:#18181B; background:#FFFFFF; border:1px solid #A1A1AA; border-radius:4px; padding:12px; outline:2px solid #1D4ED8; outline-offset:2px;">you@company.com</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; font-size:14px; font-weight:500; color:#A1A1AA;">disabled
+            <input type="text" disabled="disabled" value="不可編輯" style="font-family:Inter, sans-serif; font-size:14px; line-height:1.6; color:#A1A1AA; background:#FAFAFA; border:1px solid #E8E8EB; border-radius:4px; padding:12px; width:100%;" />
+          </div>
+          <p style="margin:0; font-size:13px; line-height:1.5; color:#71717A;">錯誤狀態不新增顏色 token：邊框改為 --color-text-primary 並在下方以 13px 文字說明。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">Code block</h3>
+      <div style="border:1px solid #E4E4E7; border-radius:8px; overflow:hidden;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 16px; background:#FAFAFA; border-bottom:1px solid #E4E4E7;">
+          <span style="font-family:'JetBrains Mono', monospace; font-size:13px; color:#71717A;">scheduler/pool.go</span>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:13px; font-weight:500; color:#52525B; background:transparent; border:1px solid transparent; border-radius:4px; padding:4px 8px; cursor:pointer;" style-hover="background:#E8E8EB; color:#18181B;" style-focus="outline:2px solid #1D4ED8; outline-offset:2px;">Copy</button>
+        </div>
+        <pre style="margin:0; padding:20px; background:#FAFAFA; font-size:14px; line-height:1.65; color:#18181B; overflow-x:auto;">// 壓縮與寫入分離，壓縮可被搶佔
+writePool := pool.New(pool.Opts{Workers: 8, Priority: pool.High})
+compactPool := pool.New(pool.Opts{Workers: 2, Preemptible: true})</pre>
+      </div>
+      <p style="margin:0; font-size:14px; line-height:1.6; color:#71717A; max-width:68ch;">理由：程式碼區塊不做語法上色，只用 mono 字體與 surface 底色分區 — 全站色彩預算留給互動元素。行內程式碼用 <code style="font-size:13px; background:#F4F4F5; border:1px solid #E8E8EB; border-radius:4px; padding:1px 5px;">--color-surface</code> 加細邊框。</p>
+    </div>
+
+    <sc-if value="{{ showDark }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <h3 style="margin:0; font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">深色模式對應</h3>
+      <div style="background:#101012; border:1px solid #26272B; border-radius:8px; padding:32px; display:flex; flex-direction:column; gap:32px;">
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #7D9CFF; background:#7D9CFF; color:#101012; cursor:pointer;" style-hover="background:#9DB4FF; border-color:#9DB4FF;" style-focus="outline:2px solid #7D9CFF; outline-offset:2px;">下載履歷</button>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #3A3B40; background:transparent; color:#F4F4F5; cursor:pointer;" style-hover="background:#17181B; border-color:#52525B;" style-focus="outline:2px solid #7D9CFF; outline-offset:2px;">查看原始碼</button>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid transparent; background:transparent; color:#B4B4BC; cursor:pointer;" style-hover="background:#17181B; color:#F4F4F5;">全部文章</button>
+          <button type="button" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #7D9CFF; background:#7D9CFF; color:#101012; outline:2px solid #7D9CFF; outline-offset:2px;">focus-visible</button>
+          <button type="button" disabled="disabled" style="font-family:Inter, sans-serif; font-size:14px; font-weight:500; line-height:1; padding:12px 16px; border-radius:4px; border:1px solid #26272B; background:#17181B; color:#52525B; cursor:not-allowed;">disabled</button>
+        </div>
+        <div style="font-size:16px; line-height:1.7; color:#F4F4F5; max-width:68ch;">深色底的正文用 <span style="color:#B4B4BC;">--color-text-secondary</span> 承接次要資訊，連結如 <a href="#0" style="color:#7D9CFF; text-decoration:underline; text-underline-offset:3px;" style-hover="color:#9DB4FF;">關於背壓的筆記</a> 仍保留底線。</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;">
+          <a href="#0" style="display:flex; flex-direction:column; gap:12px; border:1px solid #26272B; border-radius:8px; padding:24px; background:#17181B; text-decoration:none; color:#F4F4F5;" style-hover="border-color:#3A3B40;" style-focus="outline:2px solid #7D9CFF; outline-offset:2px;">
+            <div style="font-size:13px; font-weight:450; color:#8E8E97;">2026 · 分散式系統</div>
+            <div style="font-size:20px; line-height:1.35; font-weight:600; letter-spacing:-0.011em;">重寫排程器：從 40 分鐘到 90 秒</div>
+            <div style="font-size:16px; line-height:1.7; color:#B4B4BC;">拆開互相等待的兩個隊列，尾延遲收斂 96%。</div>
+          </a>
+          <div style="border:1px solid #26272B; border-radius:8px; overflow:hidden;">
+            <div style="padding:10px 16px; background:#17181B; border-bottom:1px solid #26272B; font-family:'JetBrains Mono', monospace; font-size:13px; color:#8E8E97;">scheduler/pool.go</div>
+            <pre style="margin:0; padding:20px; background:#17181B; font-size:14px; line-height:1.65; color:#F4F4F5; overflow-x:auto;">compactPool := pool.New(pool.Opts{
+  Workers: 2, Preemptible: true,
+})</pre>
+          </div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span style="font-size:13px; font-weight:450; color:#B4B4BC; background:#17181B; border:1px solid #26272B; border-radius:4px; padding:4px 8px;">Go</span>
+          <span style="font-size:13px; font-weight:450; color:#B4B4BC; background:#17181B; border:1px solid #26272B; border-radius:4px; padding:4px 8px;">Postgres</span>
+          <div style="display:flex; flex-direction:column; gap:8px; font-size:14px; font-weight:500; color:#F4F4F5; min-width:240px;">
+            <input type="email" placeholder="you@company.com" style="font-family:Inter, sans-serif; font-size:14px; line-height:1.6; color:#F4F4F5; background:#101012; border:1px solid #3A3B40; border-radius:4px; padding:12px; width:100%;" style-focus="outline:2px solid #7D9CFF; outline-offset:2px;" />
+          </div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+  </section>
+
+  <sc-if value="{{ showCss }}" hint-placeholder-val="{{ true }}">
+  <section style="display:flex; flex-direction:column; gap:24px; border-top:1px solid #E4E4E7; padding-top:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:68ch;">
+      <h2 style="margin:0; font-size:26px; line-height:1.25; font-weight:600; letter-spacing:-0.018em;">08 — CSS custom properties</h2>
+      <p style="margin:0; font-size:16px; line-height:1.7; color:#52525B;">語意化命名：元件只引用用途，不引用色階編號，換色時不需改動元件。</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(420px,1fr)); gap:24px;">
+      <div style="border:1px solid #E4E4E7; border-radius:8px; overflow:hidden;">
+        <div style="padding:10px 16px; background:#FAFAFA; border-bottom:1px solid #E4E4E7; font-family:'JetBrains Mono', monospace; font-size:13px; color:#71717A;">tokens.css — 基礎與淺色</div>
+        <pre style="margin:0; padding:20px; background:#FAFAFA; font-size:13px; line-height:1.7; color:#18181B; overflow-x:auto;">:root {
+  /* 字體 */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Type scale：size / line-height / weight / tracking */
+  --text-display: 2.75rem;   --leading-display: 1.1;   --weight-display: 650; --tracking-display: -0.03em;
+  --text-h1: 2.125rem;       --leading-h1: 1.15;       --weight-h1: 620;     --tracking-h1: -0.022em;
+  --text-h2: 1.625rem;       --leading-h2: 1.25;       --weight-h2: 600;     --tracking-h2: -0.018em;
+  --text-h3: 1.25rem;        --leading-h3: 1.35;       --weight-h3: 600;     --tracking-h3: -0.011em;
+  --text-body-lg: 1.125rem;  --leading-body-lg: 1.75;  --weight-body: 400;   --tracking-body-lg: -0.003em;
+  --text-body: 1rem;         --leading-body: 1.7;
+  --text-body-sm: 0.875rem;  --leading-body-sm: 1.6;
+  --text-caption: 0.8125rem; --leading-caption: 1.5;   --weight-caption: 450; --tracking-caption: 0.005em;
+  --text-overline: 0.75rem;  --leading-overline: 1.4;  --weight-overline: 560; --tracking-overline: 0.08em;
+  --text-mono: 0.875rem;     --leading-mono: 1.65;
+
+  /* 間距 */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-30: 120px;
+
+  /* 圓角與邊框 */
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
+  --border-width: 1px;
+  --focus-ring-width: 2px; --focus-ring-offset: 2px;
+
+  /* 陰影 */
+  --shadow-sm: 0 1px 2px rgba(24,24,27,0.06);
+  --shadow-md: 0 8px 24px -8px rgba(24,24,27,0.18);
+
+  /* 斷點與寬度 */
+  --bp-tablet: 640px; --bp-desktop: 1024px;
+  --max-content: 1120px; --max-prose: 720px; --measure-prose: 68ch;
+
+  /* 淺色語意色 */
+  --color-background: #FFFFFF;
+  --color-surface: #FAFAFA;
+  --color-border: #E4E4E7;
+  --color-border-strong: #D4D4D8;
+  --color-text-primary: #18181B;
+  --color-text-secondary: #52525B;
+  --color-text-muted: #71717A;
+  --color-accent: #1D4ED8;
+  --color-accent-hover: #1A43B8;
+  --color-accent-contrast: #FFFFFF;
+
+  /* 中性色階（僅供語意色引用） */
+  --neutral-50: #FAFAFA;  --neutral-100: #F4F4F5; --neutral-200: #E8E8EB;
+  --neutral-300: #D4D4D8; --neutral-400: #A1A1AA; --neutral-500: #71717A;
+  --neutral-600: #52525B; --neutral-800: #27272A; --neutral-900: #18181B;
+}</pre>
+      </div>
+      <div style="border:1px solid #26272B; border-radius:8px; overflow:hidden; background:#101012;">
+        <div style="padding:10px 16px; background:#17181B; border-bottom:1px solid #26272B; font-family:'JetBrains Mono', monospace; font-size:13px; color:#8E8E97;">tokens.css — 深色</div>
+        <pre style="margin:0; padding:20px; background:#17181B; font-size:13px; line-height:1.7; color:#F4F4F5; overflow-x:auto;">[data-theme="dark"] {
+  --color-background: #101012;
+  --color-surface: #17181B;
+  --color-border: #26272B;
+  --color-border-strong: #3A3B40;
+  --color-text-primary: #F4F4F5;
+  --color-text-secondary: #B4B4BC;
+  --color-text-muted: #8E8E97;
+  --color-accent: #7D9CFF;
+  --color-accent-hover: #9DB4FF;
+  --color-accent-contrast: #101012;
+
+  --neutral-50: #101012;  --neutral-100: #17181B; --neutral-200: #26272B;
+  --neutral-300: #3A3B40; --neutral-400: #52525B; --neutral-500: #8E8E97;
+  --neutral-600: #B4B4BC; --neutral-800: #E4E4E7; --neutral-900: #F4F4F5;
+
+  /* 深色模式陰影不可見，浮層改用邊框 */
+  --shadow-sm: 0 0 0 1px #3A3B40;
+  --shadow-md: 0 0 0 1px #3A3B40, 0 16px 40px -12px rgba(0,0,0,0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { /* 同上深色值 */ }
+}
+
+/* 全域 focus-visible：不改邊框寬度，避免版面位移 */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-accent);
+  outline-offset: var(--focus-ring-offset);
+}</pre>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showDarkSpecimens&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;展示範圍&quot;},&quot;showCssList&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;展示範圍&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showDark: this.props.showDarkSpecimens ?? true,
+      showCss: this.props.showCssList ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
