@@ -38,7 +38,7 @@
   --elevation-md: 0 8px 24px -8px rgba(24, 24, 27, 0.18); /* 對話框、命令面板 */
 
   /* 內容寬度:行寬以 ch 控制,維持 65–75 字元閱讀區間 */
-  --max-content: 1120px;
+  --max-content: 1280px;
   --max-prose: 720px;
   --measure-prose: 68ch;
 

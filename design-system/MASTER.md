@@ -63,8 +63,8 @@ Inter 以 variable font 載入(需要 450/560/620/650 中間字重);中文 fallb
 
 ## 斷點與寬度
 
-- Mobile < 640(邊距 20px 單欄)/ Tablet 640–1023(邊距 32px,內容 720px)/ Desktop ≥ 1024(內容 1120px)
-- `--max-content: 1120px`、`--max-prose: 720px`、`--measure-prose: 68ch`;程式碼區塊可放寬到全寬
+- Mobile < 640(邊距 20px 單欄)/ Tablet 640–1023(邊距 32px,內容 720px)/ Desktop ≥ 1024(內容 1280px)
+- `--max-content: 1280px`、`--max-prose: 720px`、`--measure-prose: 68ch`;程式碼區塊可放寬到全寬
 - 色彩在元件中用註冊過的 utilities:`bg-surface`、`text-secondary`、`border-line`(有 autocomplete 與 opacity modifier,如 `text-muted/60`);寬度類變數仍用任意值語法(`max-w-(--max-content)`)
 
 ## Icon 系統

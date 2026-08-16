@@ -77,9 +77,11 @@ const WorkItem = ({ work }: { work: WorkEntry }) => {
   const stats = work.hasStats ? (t.raw("stats") as string[]) : null;
 
   return (
-    <article className="grid grid-cols-1 gap-3 border-t border-line pt-8 sm:grid-cols-[128px_minmax(0,1fr)] sm:gap-6">
+    <article className="grid grid-cols-1 gap-3 border-t border-line pt-8 sm:grid-cols-[192px_minmax(0,1fr)] sm:gap-6">
       <div className="pt-1">
-        <p className="font-mono text-caption text-muted">{work.tag}</p>
+        <p className="whitespace-nowrap font-mono text-caption text-muted">
+          {work.tag}
+        </p>
         {work.flagship && (
           <p className="mt-1 text-overline uppercase">● Flagship</p>
         )}
