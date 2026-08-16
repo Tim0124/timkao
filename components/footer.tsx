@@ -22,7 +22,7 @@ const Footer = () => {
 
         <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 text-body-sm text-muted md:flex-row md:items-center md:justify-between">
           <a
-            href="https://github.com/timkao"
+            href="https://github.com/Tim0124"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors hover:text-foreground"

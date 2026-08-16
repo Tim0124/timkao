@@ -43,7 +43,7 @@ export default async function Home({
         <ul className="mt-10 flex items-center gap-5 lg:mt-0">
           <li>
             <a
-              href="https://github.com/timkao"
+              href="https://github.com/Tim0124"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
